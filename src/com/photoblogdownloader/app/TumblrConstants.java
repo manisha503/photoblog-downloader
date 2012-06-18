@@ -28,7 +28,9 @@ public class TumblrConstants
   // Constants used in posts api request
   public static final String RESPONSE = "response";
   public static final String ID = "id";
+  public static final String DATE = "date";
   public static final String POSTS = "posts";
+  public static final String TOTAL_POSTS = "total_posts";
   public static final String POST_URL = "post_url";
   public static final String TYPE = "type";
   public static final String TIMESTAMP = "timestamp";
@@ -40,10 +42,12 @@ public class TumblrConstants
   public static final String FORMAT = "format";
   public static final String BODY = "body";
   public static final String DATA = "data";
+  public static final String BLOG = "blog";
   
   // Constants used for API requests
   public static final String API_POSTS_URL = "http://api.tumblr.com/v2/blog/manliman.tumblr.com/posts";
   public static final String API_POST_URL = "http://api.tumblr.com/v2/blog/manliman.tumblr.com/post";
+  public static final String INFO_POST_URL = "http://api.tumblr.com/v2/blog/manliman.tumblr.com/info";
   
   public static int getType(String type) {
     if (type.equals(PHOTO)) {
