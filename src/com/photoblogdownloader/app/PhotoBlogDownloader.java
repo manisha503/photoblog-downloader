@@ -26,8 +26,8 @@ import com.photoblogdownloader.fetcher.DataResponse;
 
 public class PhotoBlogDownloader {
   
-  public static final String TUMBLR_API_KEY = "";
-  public static final String TUMBLR_API_SECRET = "";
+  public static final String TUMBLR_API_KEY = "QfHjHwQCCu9mFfb7Bk3rbpnF3AIfiNGV9GyCEFuvjyNlrg32Hc";
+  public static final String TUMBLR_API_SECRET = "3KywdZ10JpqQ8BkU6RldZqA6c8araokJYHjK20YgKfZkcO5KfY";
   private static final int FETCH_LIMIT = 20;
   
   private static Token accessToken;
@@ -55,7 +55,7 @@ public class PhotoBlogDownloader {
     }
     service = new ServiceBuilder().provider(TumblrApi.class).apiKey(TUMBLR_API_KEY).apiSecret(
         TUMBLR_API_SECRET).build();
-    Token accessToken = service.getXAuthAccessToken("", "");
+    Token accessToken = service.getXAuthAccessToken("manisha.parekh@gmail.com", "ilurishi");
     System.out.println("GOT ACCESS TOKEN: " + accessToken.getToken());
     PhotoBlogDownloader.accessToken = accessToken;
     fetcher = DataFetcher.createDataFetcher();
