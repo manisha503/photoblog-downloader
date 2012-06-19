@@ -53,13 +53,14 @@ public class PhotoBlogDownloader {
     if (imageDir == null) {
       imageDir = new File(".").getAbsolutePath();
     }
+    
     service = new ServiceBuilder().provider(TumblrApi.class).apiKey(TUMBLR_API_KEY).apiSecret(
         TUMBLR_API_SECRET).build();
     Token accessToken = service.getXAuthAccessToken("manisha.parekh@gmail.com", "ilurishi");
     System.out.println("GOT ACCESS TOKEN: " + accessToken.getToken());
     PhotoBlogDownloader.accessToken = accessToken;
     fetcher = DataFetcher.createDataFetcher();
-
+    
     populatePostIds();
     
     PhotoBlogDownloader downloader = new PhotoBlogDownloader();
@@ -202,8 +203,10 @@ public class PhotoBlogDownloader {
       String imageName = url.substring(lastSlash + 1);
       
       try {
-        File f = new File(imageDir + date.substring(0, 19) + "_" + id
-            + "_" + photo_number + "_" + imageName);
+        String dateStr = date.substring(0, 19);
+        String dateReplaced = dateStr.replace(" ", "_");
+        String filename = imageDir + dateReplaced + "_" + id + "_" + photo_number + "_" + imageName;
+        File f = new File(filename);
         if (f.exists()) {
           System.out.println("AAAAAAAAAAAA - FILE ALREADY EXISTS: " + f.getAbsolutePath());
           return;
